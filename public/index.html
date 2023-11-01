@@ -1,189 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BurgerHeaven</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1 ">Welcome to BurgerHeaven Online</h1>
-        </header>
-       
-        <main>
-            <section>
-                
-                <h2>Select Burger</h2>
-                
-                <p>This is where you execute burger selection</p>
-
-                <div style="display: inline-block">
-
-                    <h3>The Whopper</h3>
-
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B831/production/_130935174_whopper.jpg" 
-                    alt="", style="width: 200px;">
-                    
-                    <p>Allergies:</p>
-                    <ul>
-                        <li>Gluten</li>
-
-                        <li>Lactose</li>
-
-                    </ul>
-                </div>
-
-
-                <div style="display: inline-block; padding: 10px;">
-
-                    <h3>The Big Mac</h3>
-
-                    <img src="https://cdn.kingmagazine.se/app/uploads/2019/04/1eb70c54-5cb650a3b6e57.png" alt="", style="width: 200px;">
-
-                    <p>Allergies:</p>
-                    <ul>
-
-                        <li>Gluten</li>
-                        <li>Lactose</li>
-
-                    </ul>
-
-                </div>
-
-
-                <div style="display: inline-block;">
-
-                    <h3>THE CURSED BURGER</h3>
-
-                    <img src="https://pbs.twimg.com/media/EvFRgYjXIAQODAJ.jpg" alt="", style="width: 200px;">
-
-                    <p>Allergies:</p>
-                    <ul>
-                        
-                        <li>ALL</li>
-                    
-                    </ul>
-
-                    
-                </div>
-
-                
-            </section>
-
-
-            <section>
-
-                <h2>Customer information</h2>
-
-                <p>This is where you provide necessary information</p>
-
-                <h3>Delivery information</h3>
-
-                <section id="contact">
-
-                <form>
-
-                    <p> 
-
-                        <div>
-                            <label for="Fullname">Fullname</label>
-                        </div>
-
-                        <input type="text", name="Fullname" id="Fullname", required = "required", placeholder="First-and Last name">
-
-                    </p>
-
-                    <p>
-
-                        <div>
-                            <label for="Email">Email</label>
-                        </div>
-
-                        <input type="text", name="Email", id="Email", required = "required", placeholder="Email adress">
-
-                    </p>
-
-                    <p>
-                        <div>
-                            <label for="Street">Street</label>
-                        </div>
-
-                        <input type="text", name="Street", id="Street", required = "required", placeholder="Street">
-
-                    </p>
-
-                    <p>
-                        <div>
-                            <label for="Housenumber">Housenumber</label>
-                        </div>
-
-                        <input type="number", name="Housenumber", id = "Housenumber", required = "required", placeholder="Housenumber">
-
-                    </p>
-
-
-                    <p>
-
-                        <label for="payment">Payment</label>
-
-                        <select name="payment" id="payment">
-
-                            <option selected="selected">Klarna</option>
-                            <option>Paypal</option>
-                            <option>Credit Card</option>
-                            <option>Check</option>
-
-                        </select>
-
-                    </p>
-
-
-                    <p>
-
-                        <div>
-                            <label for="Gender", style="display: inline-block;">Gender:</label>
-                        </div>
-                        
-                        <div>
-                            <label for="Do not wish to provide">Do not wish to provide</label>   
-                            <input type="radio", name="Gender", id = "Do not wish to provide", value="Do not wish to provide", checked = "checked">
-                        </div>
-
-                        <div>
-                            <label for="Man">Man</label>
-                            <input type="radio", name="Gender", id="Man", value="Man">
-                        </div>
-
-                        <div>
-                            <label for="Woman">Woman</label>
-                            <input type="radio", name="Gender", id="Woman", value="Woman">
-                        </div>
-                    </p>
-
-                   
-
-                </form>
-            </section>
-
-            <button type="submit">
-
-                <img src="https://media.istockphoto.com/id/1079725292/vector/green-tick-checkmark-vector-icon-for-checkbox-marker-symbol.jpg?s=612x612&w=0&k=20&c=OvOpxX8ZFuc5NufZTJDbpwGKvgFUmfZjY68MICmEzX4="
-                 alt="", style="width: 20px; height: 20px;" > submit
-
-            </button>
-    
-        </main>
-
-
-<hr>
-
-<footer>
-
-    <p>COPYRIGHT 2023</p>
-
-</footer>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BurgerHeaven</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Welcome to BurgerHeaven Online</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Select Burger</h2>
+
+        <p>This is where you execute burger selection</p>
+
+        <div style="display: inline-block">
+          <h3>The Whopper</h3>
+
+          <img
+            src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B831/production/_130935174_whopper.jpg"
+            alt=""
+            ,
+            style="width: 200px"
+          />
+
+          <p>Allergies:</p>
+          <ul>
+            <li>Gluten</li>
+
+            <li>Lactose</li>
+          </ul>
+        </div>
+
+        <div style="display: inline-block; padding: 10px">
+          <h3>The Big Mac</h3>
+
+          <img
+            src="https://cdn.kingmagazine.se/app/uploads/2019/04/1eb70c54-5cb650a3b6e57.png"
+            alt=""
+            ,
+            style="width: 200px"
+          />
+
+          <p>Allergies:</p>
+          <ul>
+            <li>Gluten</li>
+            <li>Lactose</li>
+          </ul>
+        </div>
+
+        <div style="display: inline-block">
+          <h3>THE CURSED BURGER</h3>
+
+          <img
+            src="https://pbs.twimg.com/media/EvFRgYjXIAQODAJ.jpg"
+            alt=""
+            ,
+            style="width: 200px"
+          />
+
+          <p>Allergies:</p>
+          <ul>
+            <li>ALL</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Customer information</h2>
+
+        <p>This is where you provide necessary information</p>
+
+        <h3>Delivery information</h3>
+
+        <form>
+          <p>
+            <label for="Fullname">Fullname</label><br />
+            <input
+              type="text"
+              ,
+              name="Fullname"
+              id="Fullname"
+              ,
+              required="required"
+              ,
+              placeholder="First-and Last name"
+            />
+          </p>
+
+          <p>
+            <label for="Email">Email</label><br />
+            <input
+              type="text"
+              ,
+              name="Email"
+              ,
+              id="Email"
+              ,
+              required="required"
+              ,
+              placeholder="Email adress"
+            />
+          </p>
+
+          <p>
+            <label for="Street">Street</label><br />
+            <input
+              type="text"
+              ,
+              name="Street"
+              ,
+              id="Street"
+              ,
+              required="required"
+              ,
+              placeholder="Street"
+            />
+          </p>
+
+          <p>
+            <label for="Housenumber">Housenumber</label><br />
+            <input
+              type="number"
+              ,
+              name="Housenumber"
+              ,
+              id="Housenumber"
+              ,
+              required="required"
+              ,
+              placeholder="Housenumber"
+            />
+          </p>
+
+          <p>
+            <label for="payment"><b>Payment</b></label>
+
+            <br />
+
+            <select name="payment" id="payment">
+              <option selected="selected">Klarna</option>
+              <option>Paypal</option>
+              <option>Credit Card</option>
+              <option>Check</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="Gender" , style="display: inline-block"
+              ><b>Gender:</b></label
+            >
+
+            <br />
+
+            <input
+              type="radio"
+              ,
+              name="Gender"
+              ,
+              id="Do not wish to provide"
+              ,
+              value="Do not wish to provide"
+              ,
+              checked="checked"
+            />
+            <label for="Do not wish to provide">Do not wish to provide</label>
+
+            <br />
+
+            <input type="radio" , name="Gender" , id="Man" , value="Man" />
+            <label for="Man">Man</label>
+
+            <br />
+
+            <input type="radio" , name="Gender" , id="Woman" , value="Woman" />
+            <label for="Woman">Woman</label>
+          </p>
+        </form>
+      </section>
+
+      <button type="submit">
+        submit
+        <img
+          src="https://media.istockphoto.com/id/1079725292/vector/green-tick-checkmark-vector-icon-for-checkbox-marker-symbol.jpg?s=612x612&w=0&k=20&c=OvOpxX8ZFuc5NufZTJDbpwGKvgFUmfZjY68MICmEzX4="
+          alt=""
+          ,
+          style="width: 20px; height: 20px"
+        />
+      </button>
+    </main>
+
+    <hr />
+
+    <footer>
+      <p>COPYRIGHT 2023</p>
+    </footer>
+  </body>
 </html>
