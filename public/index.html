@@ -10,68 +10,84 @@
 
   <body>
     <header>
-      <h1>Welcome to BurgerHeaven Online</h1>
+      <section id="headline">
+        <img
+          class="headerImage"
+          src="https://img.freepik.com/free-photo/exploding-burger-with-vegetables-melted-cheese-black-background-generative-ai_157027-1734.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699142400&semt=ais"
+          alt="Image can't be loaded"
+        />
+        <h1 id="absolute">Welcome to BurgerHeaven Online</h1>
+      </section>
     </header>
 
     <main>
-      <section>
+      <section class="selectburger">
         <h2>Select Burger</h2>
 
         <p>This is where you execute burger selection</p>
 
-        <div style="display: inline-block">
-          <h3>The Whopper</h3>
+        <div class="burgergrid">
+          <div>
+            <h3>The Whopper</h3>
 
-          <img
-            src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B831/production/_130935174_whopper.jpg"
-            alt=""
-            ,
-            style="width: 200px"
-          />
+            <img
+              src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B831/production/_130935174_whopper.jpg"
+              alt=""
+              ,
+              style="width: 200px"
+            />
 
-          <p>Allergies:</p>
-          <ul>
-            <li>Gluten</li>
+            <section class="allergies">
+              <p>Allergies:</p>
+              <ul>
+                <li><span id="allergyspan">Gluten</span></li>
+                <li><span id="allergyspan">Lactose</span></li>
+              </ul>
+            </section>
+          </div>
 
-            <li>Lactose</li>
-          </ul>
-        </div>
+          <div>
+            <h3>The Big Mac</h3>
 
-        <div style="display: inline-block; padding: 10px">
-          <h3>The Big Mac</h3>
+            <img
+              src="https://cdn.kingmagazine.se/app/uploads/2019/04/1eb70c54-5cb650a3b6e57.png"
+              alt=""
+              ,
+              style="width: 200px"
+            />
 
-          <img
-            src="https://cdn.kingmagazine.se/app/uploads/2019/04/1eb70c54-5cb650a3b6e57.png"
-            alt=""
-            ,
-            style="width: 200px"
-          />
+            <section class="allergies">
+              <p>Allergies:</p>
 
-          <p>Allergies:</p>
-          <ul>
-            <li>Gluten</li>
-            <li>Lactose</li>
-          </ul>
-        </div>
+              <ul>
+                <li><span id="allergyspan">Gluten</span></li>
+                <li><span id="allergyspan">Lactose</span></li>
+              </ul>
+            </section>
+          </div>
 
-        <div style="display: inline-block">
-          <h3>THE CURSED BURGER</h3>
+          <div>
+            <h3>THE CURSED BURGER</h3>
 
-          <img
-            src="https://pbs.twimg.com/media/EvFRgYjXIAQODAJ.jpg"
-            alt=""
-            ,
-            style="width: 200px"
-          />
+            <img
+              class="cursed"
+              src="https://pbs.twimg.com/media/EvFRgYjXIAQODAJ.jpg"
+              alt=""
+              ,
+              style="width: 200px"
+            />
 
-          <p>Allergies:</p>
-          <ul>
-            <li>ALL</li>
-          </ul>
+            <section class="allergies">
+              <p>Allergies:</p>
+              <ul>
+                <li><span id="allergyspan">all</span></li>
+              </ul>
+            </section>
+          </div>
         </div>
       </section>
 
-      <section>
+      <section id="customerinformation">
         <h2>Customer information</h2>
 
         <p>This is where you provide necessary information</p>
@@ -184,15 +200,17 @@
         </form>
       </section>
 
-      <button type="submit">
-        submit
-        <img
-          src="https://media.istockphoto.com/id/1079725292/vector/green-tick-checkmark-vector-icon-for-checkbox-marker-symbol.jpg?s=612x612&w=0&k=20&c=OvOpxX8ZFuc5NufZTJDbpwGKvgFUmfZjY68MICmEzX4="
-          alt=""
-          ,
-          style="width: 20px; height: 20px"
-        />
-      </button>
+      <section style="margin: 1% 20px">
+        <button type="hover">
+          submit
+          <img
+            src="https://media.istockphoto.com/id/1079725292/vector/green-tick-checkmark-vector-icon-for-checkbox-marker-symbol.jpg?s=612x612&w=0&k=20&c=OvOpxX8ZFuc5NufZTJDbpwGKvgFUmfZjY68MICmEzX4="
+            alt=""
+            ,
+            style="width: 14px; height: 14px"
+          />
+        </button>
+      </section>
     </main>
 
     <hr />
