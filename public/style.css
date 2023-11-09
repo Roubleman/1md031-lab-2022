@@ -1,66 +1,65 @@
+/*HUE FOR CURSED BURGER*/
 
-
-h1{
-
-    font-family: fantasy;
-    font-weight: bold;
-    text-align: center;
-    margin: 5% 0;
-
+h1 {
+  font-family: fantasy;
+  font-weight: bold;
+  text-align: center;
+  margin: 5% 0;
 }
 
-body{
-
-    font-family: arial;
-
+body {
+  font-family: arial;
 }
 
-section.allergies{
-    color: #ff5500;
+section.allergies {
+  color: #ff5500;
 }
 
-#allergyspan{
-    text-transform: uppercase;
+#allergyspan {
+  text-transform: uppercase;
 }
 
-#customerinformation{
-    background-color: black;
-    color: whitesmoke;
-    border: 2px dotted whitesmoke;
-    padding-left: 30px;
-
+#customerinformation {
+  background-color: black;
+  color: whitesmoke;
+  border: 2px dotted whitesmoke;
+  padding-left: 30px;
 }
 
-button:hover{
-    color: darkgray;
-    cursor: pointer;
+button:hover {
+  color: darkgray;
+  cursor: pointer;
 }
 
-section.selectburger{
-    border: 2px dotted black;
-    margin-bottom: 20px;
-    padding-left: 30px;
+section.selectburger {
+  border: 2px dotted black;
+  margin-bottom: 20px;
+  padding-left: 30px;
 }
 
-img.headerImage{
-    opacity: 0.77;
-    width: 100%;
-    height: auto;
+img.headerImage {
+  opacity: 0.77;
+  width: 100%;
+  height: auto;
 }
 
-#absolute{
-    position: absolute;
-    padding-left: 35%;
-    margin-top: -1000px;
+#absolute {
+  position: absolute;
+  padding-left: 35%;
+  margin-top: -1000px;
 }
 
-#headline{
-    height: 300px;
-    overflow: hidden;
+#headline {
+  height: 300px;
+  overflow: hidden;
 }
 
-.burgergrid{
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
+#cursed:hover {
+  box-shadow: red;
+}
+
+.burgergrid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
 }
