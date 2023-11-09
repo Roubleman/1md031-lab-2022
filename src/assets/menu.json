@@ -1,0 +1,31 @@
+[
+
+    {
+        "name": "Cheeseburger",
+        "URL": "https://www.dagensps.se/_next/image/?url=https%3A%2F%2Ffra1.digitaloceanspaces.com%2Fdagensps%2Fuploads%2F2023%2F07%2FBurger.jpg&w=1200&q=75",
+        "kCal" : 500,
+        "gluten" : true,
+        "lactose": true, 
+        "cursed": false
+
+    },
+
+    {
+        "name":"Hamburger",
+        "URL":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hamburger_%28black_bg%29.jpg/800px-Hamburger_%28black_bg%29.jpg",
+        "kCal":400,
+        "gluten": true,
+        "lactose": false,
+        "cursed":false
+    },
+
+    {
+        "name":"MonsterBurger",
+        "URL": "https://www.usatoday.com/gcdn/-mm-/b97395fb62a2c95674c976e797185df2cd7e249a/c=0-1365-2231-2625/local/-/media/2018/05/22/USATODAY/USATODAY/636626010345234234-TheBoss-1526924868783-5-HR.jpg?width=2231&height=1260&fit=crop&format=pjpg&auto=webp",
+        "kCal":2900,
+        "gluten":false,
+        "lactose": false,
+        "cursed":true
+    }
+
+]
