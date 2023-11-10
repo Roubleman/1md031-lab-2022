@@ -12,12 +12,12 @@
     </header>
 
     <main>
-      <section class="selectburger">
+      <section class="selectBurger">
         <h2>Select Burger</h2>
 
         <p>This is where you execute burger selection</p>
 
-        <div class="burgergrid">
+        <div class="burgerGrid">
           <Burger
             v-for="burger in burgers"
             v-bind:burger="burger"
@@ -27,7 +27,7 @@
         </div>
       </section>
 
-      <section id="customerinformation">
+      <section id="customerInformation">
         <h2>Customer information</h2>
 
         <p>This is where you provide necessary information</p>
@@ -178,6 +178,8 @@ function menuItem(nameOfBurger, URL, calories, glutenOrNot, lactoseOrNot, cursed
 }
 */
 
+var set = new Set();
+
 function emailCheck(str) {
   const atIndex = str.search("@");
 
@@ -192,6 +194,18 @@ function emailCheck(str) {
   }
   return true;
 }
+
+/*function ifBurgersAreOrdered() {
+let bool = false;
+console.log("Hello??");
+for (let i = 0; i < set.length; i++) {
+    console.log(this.orderedBurgers[set[i]]);
+    if (this.orderedBurgers[set[i]] > 0) {
+      bool = true;
+    }
+  }
+  return bool;
+}*/
 
 export default {
   name: "HomeView",
@@ -230,6 +244,18 @@ export default {
       this.location.y = event.clientY - offset.y - 10;
     },
 
+    ifBurgersAreOrdered: function () {
+      // FUNKAR INTE TROR DET HANDLAR OM set
+      let bool = false;
+      for (let i = 0; i < set.length; i++) {
+        console.log(this.orderedBurgers[set[i]]);
+        if (this.orderedBurgers[set[i]] > 0) {
+          bool = true;
+        }
+      }
+      return bool;
+    },
+
     addToOrder: function () {
       if (this.location.x == 0 && this.location.y == 0) {
         alert("You haven't chosen a location yet");
@@ -243,6 +269,11 @@ export default {
 
       if (emailCheck(this.customerInformation.Email)) {
         alert("Correct email is required");
+        return;
+      }
+
+      if (this.ifBurgersAreOrdered()) {
+        alert("You have to order a minimum of a single burger");
         return;
       }
 
@@ -270,6 +301,7 @@ export default {
 
     burgersToBeOrdered: function (event) {
       this.orderedBurgers[event.name] = event.amount;
+      set += [event.name];
     },
 
     getOrderNumber: function () {
@@ -299,7 +331,7 @@ body {
   font-family: arial;
 }
 
-#customerinformation {
+#customerInformation {
   background-color: black;
   color: whitesmoke;
   border: 2px dotted whitesmoke;
@@ -320,7 +352,8 @@ button:hover {
 #absolute {
   position: absolute;
   padding-left: 35%;
-  margin-top: -1000px;
+  top: 8%;
+  text-align: center;
 }
 
 #headline {
@@ -328,7 +361,7 @@ button:hover {
   overflow: hidden;
 }
 
-.burgergrid {
+.burgerGrid {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fill, 20em);

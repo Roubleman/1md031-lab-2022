@@ -30,12 +30,12 @@
         <p>Allergies:</p>
 
         <ul>
-          <li v-if="burger.gluten"><span class="allergyspan">Gluten</span></li>
+          <li v-if="burger.gluten"><span class="allergySpan">Gluten</span></li>
 
           <li v-if="burger.lactose">
-            <span class="allergyspan">Lactose</span>
+            <span class="allergySpan">Lactose</span>
           </li>
-          <li v-if="burger.cursed"><span class="allergyspan">ALL</span></li>
+          <li v-if="burger.cursed"><span class="allergySpan">ALL</span></li>
         </ul>
       </section>
     </div>
@@ -82,7 +82,7 @@ export default {
 section.allergies {
   color: #ff5500;
 }
-.allergyspan {
+.allergySpan {
   text-transform: uppercase;
 }
 .orderedButton {
