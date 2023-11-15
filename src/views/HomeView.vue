@@ -152,7 +152,11 @@
           {{ customerInformation.Payment }}
         </section>
 
-        <!--  <p> <span> STATUS: {{ order.status }}</span>  </p>  -->
+        <p>
+          <span v-if="order != null"> STATUS: {{ order.status }}</span>
+
+          <span v-else> STATUS: preparing </span>
+        </p>
       </div>
     </main>
 
@@ -303,7 +307,6 @@ export default {
       });
 
       this.showReceipt = true;
-      console.log(this.showReceipt);
     },
 
     burgersToBeOrdered: function (event) {

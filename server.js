@@ -62,6 +62,10 @@ Data.prototype.getAllOrders = function () {
   return this.orders;
 };
 
+Data.prototype.getSpecificOrder = function (orderId) {
+  return this.orders[orderId];
+}
+
 let data = new Data();
 
 io.on('connection', function (socket) {
@@ -78,7 +82,11 @@ io.on('connection', function (socket) {
 
   socket.on('setStatus', function (orderStatus) {
     data.setStatus(orderStatus.orderId, orderStatus.status);
+
+
     io.emit('currentQueue', { orders: data.getAllOrders() });
+
+    io.emit('customerStatus',{order: data.getSpecificOrder(orderStatus.orderId)} )
   });
   // When a connected client emits an "clearQueue" message
   socket.on('clearQueue', function () {
