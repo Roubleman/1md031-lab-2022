@@ -56,8 +56,6 @@ Data.prototype.addOrder = function (order) {
 
 Data.prototype.setStatus = function (orderId,status) {
   this.orders[orderId].status = status;
-  console.log("setStatus has been reached!! ")
-  console.log(this.orders[orderId].status)
 };
 
 Data.prototype.getAllOrders = function () {
@@ -81,7 +79,6 @@ io.on('connection', function (socket) {
   socket.on('setStatus', function (orderStatus) {
     data.setStatus(orderStatus.orderId, orderStatus.status);
     io.emit('currentQueue', { orders: data.getAllOrders() });
-    console.log("EMIT FUNGERAR!!!")
   });
   // When a connected client emits an "clearQueue" message
   socket.on('clearQueue', function () {

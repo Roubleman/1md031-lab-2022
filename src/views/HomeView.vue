@@ -125,7 +125,7 @@
       </section>
 
       <section style="margin: 1% 20px">
-        <button :disabled="showReceipt" v-on:click="addToOrder" type="hover">
+        <button v-on:click="addToOrder" type="hover">
           Place order
           <img
             src="https://media.istockphoto.com/id/1079725292/vector/green-tick-checkmark-vector-icon-for-checkbox-marker-symbol.jpg?s=612x612&w=0&k=20&c=OvOpxX8ZFuc5NufZTJDbpwGKvgFUmfZjY68MICmEzX4="
@@ -135,21 +135,25 @@
         </button>
       </section>
 
-      <section v-if="showReceipt" class="receipt">
-        <h4>Your Receipt:</h4>
+      <div v-if="showReceipt">
+        <section class="receipt">
+          <h4>Your Receipt:</h4>
 
-        <p
-          v-for="(number, foodItems) in orderedBurgers"
-          v-bind:key="'number' + foodItems"
-        >
-          {{ number }} x {{ foodItems }}
-        </p>
+          <p
+            v-for="(number, foodItems) in orderedBurgers"
+            v-bind:key="'number' + foodItems"
+          >
+            {{ number }} x {{ foodItems }}
+          </p>
 
-        <hr />
+          <hr />
 
-        <span style="font-weight: 700"> Payment Method:</span>
-        {{ customerInformation.Payment }}
-      </section>
+          <span style="font-weight: 700"> Payment Method:</span>
+          {{ customerInformation.Payment }}
+        </section>
+
+        <!--  <p> <span> STATUS: {{ order.status }}</span>  </p>  -->
+      </div>
     </main>
 
     <br />
@@ -178,8 +182,6 @@ function menuItem(nameOfBurger, URL, calories, glutenOrNot, lactoseOrNot, cursed
 }
 */
 
-var set = new Set();
-
 function emailCheck(str) {
   const atIndex = str.search("@");
 
@@ -194,18 +196,6 @@ function emailCheck(str) {
   }
   return true;
 }
-
-/*function ifBurgersAreOrdered() {
-let bool = false;
-console.log("Hello??");
-for (let i = 0; i < set.length; i++) {
-    console.log(this.orderedBurgers[set[i]]);
-    if (this.orderedBurgers[set[i]] > 0) {
-      bool = true;
-    }
-  }
-  return bool;
-}*/
 
 export default {
   name: "HomeView",
@@ -231,8 +221,17 @@ export default {
       },
 
       showReceipt: false,
+
+      order: null,
     };
   },
+
+  created: function () {
+    socket.on("customerStatus", (data) => {
+      this.order = data.order;
+    });
+  },
+
   methods: {
     setLocation: function (event) {
       var offset = {
@@ -245,14 +244,20 @@ export default {
     },
 
     ifBurgersAreOrdered: function () {
-      // FUNKAR INTE TROR DET HANDLAR OM set
+      var keys = Object.keys(this.orderedBurgers);
       let bool = false;
-      for (let i = 0; i < set.length; i++) {
-        console.log(this.orderedBurgers[set[i]]);
-        if (this.orderedBurgers[set[i]] > 0) {
-          bool = true;
-        }
+
+      if (keys.length < 1) {
+        return true;
       }
+
+      keys.forEach((element) => {
+        if (this.orderedBurgers[element] < 1) {
+          bool = true;
+          return bool;
+        }
+      });
+
       return bool;
     },
 
@@ -290,18 +295,19 @@ export default {
         details: {
           x: this.location.x,
           y: this.location.y,
-          status: "prepared",
         },
 
         orderItems: this.orderedBurgers,
+
+        status: "preparing",
       });
 
       this.showReceipt = true;
+      console.log(this.showReceipt);
     },
 
     burgersToBeOrdered: function (event) {
       this.orderedBurgers[event.name] = event.amount;
-      set += [event.name];
     },
 
     getOrderNumber: function () {

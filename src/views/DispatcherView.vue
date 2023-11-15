@@ -24,12 +24,10 @@
         </div>
 
         Order is currently being
-        <span style="text-decoration: underline">{{
-          order.details.status
-        }}</span>
+        <span style="text-decoration: underline">{{ order.status }}</span>
         <br />
-        <button v-on:click="changeButtonText(key)">
-          press to complete stage: {{ order.details.status }}
+        <button @click="changeButtonText(key)">
+          press to complete stage: {{ order.status }}
         </button>
 
         <hr />
@@ -42,6 +40,7 @@
         background: 'url(' + require('../../public/img/polacks.jpg') + ')',
       }"
     >
+      <!--
       <div
         v-for="(order, key) in orders"
         v-bind:style="{
@@ -52,7 +51,8 @@
         v-on:click="toggleShowCustomerInfo"
       >
         {{ key }}
-      </div>
+      </div> 
+      -->
     </div>
   </div>
 </template>
@@ -70,7 +70,6 @@ export default {
   created: function () {
     socket.on("currentQueue", (data) => {
       this.orders = data.orders;
-      console.log(this.orders);
     });
   },
   methods: {
@@ -79,8 +78,13 @@ export default {
     },
 
     changeButtonText: function (key) {
-      socket.emit("setStatus", { orderId: key, status: "cooking" });
-      console.log("Försöker Emitta");
+      if (this.orders[key].status == "preparing") {
+        socket.emit("setStatus", { orderId: key, status: "cooking" });
+      } else if (this.orders[key].status == "cooking") {
+        socket.emit("setStatus", { orderId: key, status: "dispatching" });
+      } else {
+        socket.emit("setStatus", { orderId: key, status: "delivered" });
+      }
     },
   },
 };
