@@ -303,7 +303,9 @@ export default {
 
         orderItems: this.orderedBurgers,
 
-        status: "preparing",
+        status: "Preparing",
+
+        showCustomerInfo: false,
       });
 
       this.showReceipt = true;

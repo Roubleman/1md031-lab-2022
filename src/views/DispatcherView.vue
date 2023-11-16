@@ -1,37 +1,6 @@
 <template>
   <div id="orders">
     <div id="orderList">
-      <div v-for="(order, key) in orders" v-bind:key="'order' + key">
-        <p>
-          <span style="font-size: larger; font-weight: bold">
-            Order No. {{ key }}
-          </span>
-          <br />
-          <span style="font-size: medium; font-weight: 500"
-            >Customer info:</span
-          >
-          {{ order.customer.name }} ({{ order.customer.email }},
-          {{ order.customer.payment }}, {{ order.customer.gender }})
-        </p>
-        <span style="font-size: medium; font-weight: 500">Order:</span>
-        <div
-          v-for="(number, foodItem) in order.orderItems"
-          v-bind:key="'number' + foodItem"
-        >
-          {{ number }} x {{ foodItem }}
-
-          <br />
-        </div>
-
-        Order is currently being
-        <span style="text-decoration: underline">{{ order.status }}</span>
-        <br />
-        <button @click="changeButtonText(key)">
-          press to complete stage: {{ order.status }}
-        </button>
-
-        <hr />
-      </div>
       <button v-on:click="clearQueue">Clear Queue</button>
     </div>
     <div
@@ -40,19 +9,43 @@
         background: 'url(' + require('../../public/img/polacks.jpg') + ')',
       }"
     >
-      <!--
       <div
+        class="dåligFantasiNu hoverable"
         v-for="(order, key) in orders"
         v-bind:style="{
           left: order.details.x + 'px',
           top: order.details.y + 'px',
         }"
         v-bind:key="'dots' + key"
-        v-on:click="toggleShowCustomerInfo"
+        v-on:click="toggleShowCustomerInfo(key)"
       >
         {{ key }}
-      </div> 
-      -->
+
+        <div class="snyggareCustomerInfo" v-if="order.showCustomerInfo">
+          <span style="font-size: medium; font-weight: 500"
+            >Customer info:</span
+          >
+          {{ order.customer.name }} ({{ order.customer.email }},
+          {{ order.customer.payment }}, {{ order.customer.gender }})
+          <span style="font-size: medium; font-weight: 500">Order:</span>
+
+          <div
+            v-for="(number, foodItem) in order.orderItems"
+            v-bind:key="'number' + foodItem"
+          >
+            {{ number }} x {{ foodItem }}
+
+            <br />
+          </div>
+
+          Order is currently being
+          <span style="text-decoration: underline">{{ order.status }}</span>
+          <br />
+          <button @click="changeButtonText(key)">
+            {{ order.status }} order
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -78,13 +71,19 @@ export default {
     },
 
     changeButtonText: function (key) {
-      if (this.orders[key].status == "preparing") {
-        socket.emit("setStatus", { orderId: key, status: "cooking" });
-      } else if (this.orders[key].status == "cooking") {
-        socket.emit("setStatus", { orderId: key, status: "dispatching" });
+      if (this.orders[key].status == "Preparing") {
+        socket.emit("setStatus", { orderId: key, status: "Cooking" });
+      } else if (this.orders[key].status == "Cooking") {
+        socket.emit("setStatus", { orderId: key, status: "Dispatching" });
       } else {
-        socket.emit("setStatus", { orderId: key, status: "delivered" });
+        socket.emit("setStatus", { orderId: key, status: "Delivered" });
+
+        // TA BORT ORDER NÄR DELIVERED.
       }
+    },
+
+    toggleShowCustomerInfo: function (key) {
+      this.orders[key].showCustomerInfo = !this.orders[key].showCustomerInfo;
     },
   },
 };
@@ -99,7 +98,15 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   padding: 1em;
   overflow: scroll;
-  height: 600px;
+  height: 20px;
+}
+
+.snyggareCustomerInfo {
+  position: absolute;
+  z-index: 2;
+  background-color: black;
+  width: 300px;
+  height: auto;
 }
 
 #dots {
@@ -112,7 +119,7 @@ export default {
   cursor: crosshair;
 }
 
-#dots div {
+.dåligFantasiNu {
   position: absolute;
   background: black;
   color: white;
@@ -120,5 +127,9 @@ export default {
   width: 20px;
   height: 20px;
   text-align: center;
+}
+
+.hoverable :hover {
+  cursor: pointer;
 }
 </style>
