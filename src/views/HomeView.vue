@@ -155,7 +155,7 @@
         <p>
           <span v-if="order != null"> STATUS: {{ order.status }}</span>
 
-          <span v-else> STATUS: preparing </span>
+          <span v-else> STATUS: Preparing </span>
         </p>
       </div>
     </main>
@@ -247,9 +247,14 @@ export default {
       this.location.y = event.clientY - offset.y - 10;
     },
 
+    deleteBurger: function (key) {
+      delete this.orderedBurgers[key];
+    },
+
     ifBurgersAreOrdered: function () {
       var keys = Object.keys(this.orderedBurgers);
       let bool = false;
+      let counter = 0;
 
       if (keys.length < 1) {
         return true;
@@ -257,10 +262,14 @@ export default {
 
       keys.forEach((element) => {
         if (this.orderedBurgers[element] < 1) {
-          bool = true;
-          return bool;
+          this.deleteBurger(element);
+          counter++;
         }
       });
+
+      if (counter == keys.length) {
+        bool = true;
+      }
 
       return bool;
     },
@@ -313,6 +322,12 @@ export default {
 
     burgersToBeOrdered: function (event) {
       this.orderedBurgers[event.name] = event.amount;
+      var keys = Object.keys(this.orderedBurgers);
+      keys.forEach((element) => {
+        if (this.orderedBurgers[element] < 1) {
+          this.deleteBurger(element);
+        }
+      });
     },
 
     getOrderNumber: function () {
